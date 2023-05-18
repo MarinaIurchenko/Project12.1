@@ -2,15 +2,15 @@ package KinoFilms;
 
 public class FilmsManager {
     private FilmsInformation[] films = new FilmsInformation[0];
-    private int Limit;
+    private int limit;
 
     public FilmsManager() {
-        this.Limit = 5;
+        this.limit = 5;
 
     }
 
     public int getLimit() {
-        return Limit;
+        return limit;
     }
 
     public void addFilm(FilmsInformation film) {
@@ -28,10 +28,10 @@ public class FilmsManager {
 
     public FilmsInformation[] findLast() {
         int resultLength;
-        if (films.length < Limit) {
+        if (films.length < limit) {
             resultLength = films.length;
         } else {
-            resultLength = Limit;
+            resultLength = limit;
         }
         FilmsInformation[] tmp = new FilmsInformation[resultLength];
         for (int i = 0; i < tmp.length; i++) {

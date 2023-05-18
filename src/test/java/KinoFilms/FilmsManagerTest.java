@@ -9,6 +9,7 @@ public class FilmsManagerTest {
     FilmsInformation film3 = new FilmsInformation(125, "Могила светлячков", "мультфильм");
     FilmsInformation film4 = new FilmsInformation(126, "Зов предков", "приключения");
     FilmsInformation film5 = new FilmsInformation(127, "Шоу Грэма Нортона", "ток-шоу");
+    FilmsInformation film6 = new FilmsInformation(128, "Темный дворецкий", "аниме");
 
     @Test
     public void shouldAddFilm() {
@@ -39,6 +40,24 @@ public class FilmsManagerTest {
     }
 
     @Test
+    public void filmTestAllMax() {
+        FilmsManager manager = new FilmsManager();
+
+        manager.addFilm(film1);
+        manager.addFilm(film2);
+        manager.addFilm(film3);
+        manager.addFilm(film4);
+        manager.addFilm(film5);
+        manager.addFilm(film6);
+
+        FilmsInformation[] expected = {film6, film5, film4, film3, film2};
+        FilmsInformation[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
+    @Test
     public void filmTestFindLast() {
         FilmsManager manager = new FilmsManager();
 
@@ -62,7 +81,6 @@ public class FilmsManagerTest {
         manager.addFilm(film1);
         manager.addFilm(film2);
         manager.addFilm(film3);
-
 
 
         FilmsInformation[] expected = {film3, film2, film1};
